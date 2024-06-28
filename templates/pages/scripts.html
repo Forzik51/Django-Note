@@ -1,0 +1,5 @@
+{% load compress %}{% load static %} {% get_static_prefix as STATIC_PREFIX %}{% load active_link_tags %}
+{% compress js %}
+<script type="text/javascript" src="{% static 'js/app.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/jquery-te.js' %}"></script>
+{% endcompress %}

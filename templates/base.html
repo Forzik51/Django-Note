@@ -1,0 +1,10 @@
+﻿{% load static %} {% get_static_prefix as STATIC_PREFIX %}{% load active_link_tags %}
+<!DOCTYPE html>
+<html lang="en">
+{% include 'pages/head.html' %}
+<body>
+
+{% block content %} {% endblock %}
+{% include 'pages/scripts.html' %}
+</body>
+</html>

@@ -1,0 +1,45 @@
+// Background colors
+$bg--color: #212121;
+$bg--color2: #171717;
+$bg-border--color: #383838;
+$bg-button--color: #2f2f2f;
+
+// Text colors
+
+$font-h1--color-primary: #000000; //h1#dcd8d8
+$font-main--color-primary_1: #deecec;
+$font-main--color-primary_2: #4d4d4d;
+$font-main--color-primary_3: #ffffff;
+$font-main--color-primary_4: #262a2d;
+$font-main--color-primary_5: #4c4c4c;
+
+$font-header-p--color-primary: #9b9b9b; //p - in header
+
+$font-span--color-primary: #ff9f5c; //span
+$font-header-footer-a--color-primary: #c4c4c4; //a
+
+
+
+
+
+$grid-columns:      12;
+$grid-gutter-width: 1.5rem;
+$grid-row-columns:  6;
+
+$grid-breakpoints: (
+  xs: 0,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px,
+  xxl: 1400px
+);
+
+$container-max-widths: (
+  sm: 540px,
+  md: 720px,
+  lg: 960px,
+  xl: 1140px,
+  xxl: 1320px
+);
+

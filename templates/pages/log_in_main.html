@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<main>
+    <div class="container-fluid-xl container-fluid-lg container-fluid-md container-fluid-sm container-fluid h-100 log-container">
+        
+        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 h-100 log justify-content-center d-flex align-items-center">
+            <div class="col-3 form-sign-log">
+                <form  action="{% url 'register_login'%}" method="POST">
+                    {%csrf_token%}
+                <div class="col-12"><h2>NOTE</h2></div>
+                <div class="col-12"><input type="text" name="username" placeholder="username"></div>
+                <div class="col-12"><input type="email" name="email" placeholder="email only sign-in"></div>
+                <div class="col-12"><input type="password" name="password" placeholder="password"></div>
+                <div class="row sign-log">
+                    <div class="col-6"><button type="submit" name="login">Log in</button></div>
+                    <div class="col-6"><button type="submit" name="register">Sign up</button></div>
+                </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</main>
+{% endblock %}

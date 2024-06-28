@@ -1,0 +1,106 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<main>
+    <div class="container-fluid-xl container-fluid-lg container-fluid-md container-fluid-sm container-fluid h-100 notes-container">
+        
+            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 h-100 row notes">
+                <div class="col-3 notes-sidenav" id="note-sidenav">
+                    <div class="col-12 row menu-bar justify-content-between">
+                        <div class="col-2">
+                            <a href="#" id="closeNav" ><i class="fa-solid fa-bars"></i></a>
+                        </div>
+                        <div class="col-2">
+                                <a href="{% url 'logout' %}" type="submit" class="selectNote"><i class="fa-solid fa-right-from-bracket"></i></a>
+                        </div>
+                        <div class="col-2">
+                            <a href="{% url 'addNote' %}" class="selectNote"><i class="fa-regular fa-note-sticky"></i></a>
+                        </div>
+                        
+                    </div>
+                    <div class="col-12">
+                        <ul class="notes-list ">
+                            {% if notes %}
+                            {% for nawnote in notes %}
+                                {%csrf_token%}
+                            <li class="note-li">
+                                <div class="col-12 row note">
+                                    <div class="col-9 note-name">
+                                        <a href="{% url 'selectNote' nawnote.pk%}" class="selectNote item-content"><h3>{{ nawnote.noteName }}</h3></a>
+                                        <form id="renameForm" method="post" action="{% url 'renameNote' nawnote.pk%}">
+                                            {% csrf_token %}
+                                            <input type="text" name="renameInput" class="rename-input hide item-content" value="{{ nawnote.noteName }}">
+                                        </form>
+                                    </div>
+                                    <div class="col-3 note-menu d-flex justify-content-end dropdown" >
+                                        <button id="toggleDrop"><i class="fa-solid fa-sliders"></i></button>
+                                        <div id="myDropdown" class="dropdown-content">
+                                            <a href="{% url 'deleteNote' nawnote.pk%}" class="selectNote"><i class="fa-regular fa-trash-can"></i> Delete</a>
+                                            <a href="#name" class="changeNoteName selectNote"><i class="fa-solid fa-pen-to-square"></i>Rename</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            {% endfor %}
+                            {% endif %}
+                        </ul>
+                    </div>
+                    
+                </div>
+                <div class="col-9 " id="header-container">
+                    <div class="col-12 header row" >
+                        <div class="col-1">
+                            <a href="#" id="openNav"><i class="fa-solid fa-bars"></i></a>
+                        </div>
+                        <div class="col-1">
+                            <a href="{% url 'logout' %}" id="exit" class="selectNote"><i class="fa-solid fa-right-from-bracket"></i></a>
+                        </div>
+                        <div class="col-1">
+                            <a href="{% url 'addNote' %}" id="newNote" class="selectNote"><i class="fa-regular fa-note-sticky"></i></a>
+                            
+                        </div>
+                        <div class="col-6">
+                            <h2>NOTE</h2>
+                        </div>
+                        
+                        
+                    </div>
+
+
+
+                    <div class="col-12 editor-container">
+                    
+                        
+                    {% if note %}
+                        <!--<div class="editor" contenteditable="true" id="editor" >{{ note.noteText }}</div>-->
+                        <textarea name="textarea" class="jqte-test" id="editor">{{ note.noteText }}</textarea>
+                        <script>
+                            // Embed object ID into a global variable accessible to script.js
+                            let objectId = {{ note.id }};
+                        </script>
+                    {% else %}
+                        <textarea name="textarea" class="jqte-test"></textarea>
+                        <!--<div class="editor" contenteditable="true" id="editor"></div>-->
+                    {% endif %}
+                    
+
+                    </div>
+                    <!--
+                        <div class="col-12 editorPane row">
+                            <div class="col-1"></div>
+                            <div class="col-1"><button id="fontSizeplus"><i class="fa-solid fa-plus"></i></button></div>
+                            <div class="col-1"><button id="fontSizeminus"><i class="fa-solid fa-minus"></i></button></div>
+                            <div class="col-1"><button id="fontItalic"><i class="fa-solid fa-italic"></i></button></div>
+                            <div class="col-1"><button id="fontBold"><i class="fa-solid fa-bold"></i></button></div>
+                            <div class="col-1"><button id="fontUnderline"><i class="fa-solid fa-underline"></i></button></div>
+                            <div class="col-1"><button id="fontalign-left"><i class="fa-solid fa-align-left"></i></button></div>
+                            <div class="col-1"><button id="fontalign-center"><i class="fa-solid fa-align-center"></i></button></div>
+                            <div class="col-1"><button id="fontalign-right"><i class="fa-solid fa-align-right"></i></button></div>
+                            <div class="col-1"><button id="editorlist"><i class="fa-solid fa-list-ul"></i></button></div>
+                            <div class="col-1"><button id="file"><i class="fa-solid fa-file"></i></button></div>
+                        </div>-->
+                    </div>
+                </div>
+        </div>
+    </main>
+{% endblock %}

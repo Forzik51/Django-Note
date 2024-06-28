@@ -1,0 +1,36 @@
+.log-container{
+    .log{
+        h2{
+            color:$font-main--color-primary_1;
+            text-align: center;
+        }
+        input{
+            width: 100%;
+            padding: 5px;
+            border-radius: 7px;
+            background-color: $font-main--color-primary_2;
+            color:$font-main--color-primary_1;
+            border: none;
+        }
+        button{
+            width: 100%;
+            padding: 5px;
+            border-radius: 7px;
+            background-color: $font-header-footer-a--color-primary;
+            color:$font-main--color-primary_2;
+            border: none;
+        }
+        .form-sign-log{
+            div{
+                padding: 8px 0 8px 0;
+            }
+            .sign-log{
+                padding: 4px;
+                div{
+                    padding: 8px;
+                }
+            }
+        }
+        
+    }
+}
